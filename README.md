@@ -1,0 +1,1 @@
+# sfcc-product-details-page
