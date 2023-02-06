@@ -10,7 +10,16 @@ server.extend(module.superModule);
 const cache = require('*/cartridge/scripts/middleware/cache');
 const consentTracking = require('*/cartridge/scripts/middleware/consentTracking');
 
-
+/**
+* Product-Show : This endpoint is called to show the details of the selected product
+* @name Product-Show
+* @function
+* @memberof Product
+* @param {querystringparameter} - pid - Product ID
+* @param {category} - non-sensitive
+* @param {renders} - isml
+* @param {serverfunction} - append
+*/
 server.append('Show', function (req, res, next) {
     const ProductMgr = require('dw/catalog/ProductMgr');
 
