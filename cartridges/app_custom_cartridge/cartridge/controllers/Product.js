@@ -21,17 +21,22 @@ const consentTracking = require('*/cartridge/scripts/middleware/consentTracking'
 * @param {serverfunction} - append
 */
 server.append('Show', function (req, res, next) {
+    const ContentMgr = require('dw/content/ContentMgr');
     const ProductMgr = require('dw/catalog/ProductMgr');
 
-    const pid = req.httpParameterMap.get("pid");
+    const pid = req.httpParameterMap.get('pid');
     const product = ProductMgr.getProduct(pid);
 
     const isInStock = product.getAvailabilityModel().isInStock();
 
+    const contentAssetID = 'special-offers-available';
+    const contentAsset = ContentMgr.getContent(contentAssetID);
+
     const viewData = res.getViewData();
     viewData.product.isInStock = isInStock;
-    res.setViewData(viewData);
+    viewData.offerAsset = contentAsset;
 
+    res.setViewData(viewData);
     next();
 });
 
