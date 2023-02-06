@@ -35,3 +35,11 @@
 .add-to-cart.btn.btn-primary {
   width: 100%;
 }
+
+.primary-images {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-preferred-size: 62%;
+      flex-basis: 62%;
+}
