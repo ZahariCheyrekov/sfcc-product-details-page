@@ -1,0 +1,35 @@
+<div class="attribute">
+    <isif condition="${attr.swatchable}">
+        <iselse>
+            <!-- Select <Attribute> Label -->
+            <label class="${attr.id}" for="${attr.id}-${loopState && loopState.count ? loopState.count : '1'}">
+                ${Resource.msg('label.select', 'common', null)} ${attr.displayName}
+            </label>
+
+            <!-- Attribute Values Drop Down Menu -->
+            <select class="custom-select form-control select-${attr.id}"
+                id="${attr.id}-${loopState && loopState.count ? loopState.count : '1'}"
+                ${product.productType === "variant" && isBundle ? "disabled" : ""}>
+                <iscomment>
+                    <option value="${attr.resetUrl}">
+                        ${Resource.msg('label.select', 'common', null)} ${attr.displayName}
+                    </option>
+                </iscomment>
+                <isloop items="${attr.values}" var="attrValue">
+                    <option value="${attrValue.url}" data-attr-value="${attrValue.value}" ${!attrValue.selectable ? 'disabled' : ''} ${attrValue.selected ? 'selected' : ''}>
+                        ${attrValue.displayValue}
+                    </option>
+                </isloop>
+            </select>
+
+            <div class="custom-select form-control select-${attr.id}"
+                id="${attr.id}-${loopState && loopState.count ? loopState.count : '1'}"
+                ${product.productType === "variant" && isBundle ? "disabled" : ""}>
+                <isloop items="${attr.values}" var="attrValue">
+                    <button value="${attrValue.url}" data-attr-value="${attrValue.value}" ${!attrValue.selectable ? 'disabled' : ''} ${attrValue.selected ? 'selected' : ''}>
+                        ${attrValue.displayValue}
+                    </button>
+                </isloop>
+            </div>
+    </isif>
+</div>
