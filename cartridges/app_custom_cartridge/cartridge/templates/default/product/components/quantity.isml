@@ -1,13 +1,16 @@
 <label for="quantity-${loopState && loopState.count ? loopState.count : '1'}">${Resource.msg('label.quantity', 'common', null)}</label>
-<select class="quantity-select custom-select form-control"
-    id="quantity-${loopState && loopState.count ? loopState.count : '1'}">
-    <iscomment> <isloop items="${product.quantities}" var="quantity">
-        <option value="${quantity.value}" <isif condition="${product.productType !== 'bundle'}">
-            data-url="${quantity.url}"</isif>
-            ${quantity.selected ? 'selected' : ''}
-            >
-            ${quantity.value}
-        </option>
-    </isloop> </iscomment>
-    <iscomment> <input type="number" value="1" min="1" max="10" /> </iscomment>
-</select>
+<div class="d-flex">
+    <button id="value-back" class="btn border-secondary rounded-circle"><i class="fa fa-minus text-secondary"
+            aria-hidden="true"></i></button>
+    <select id="custom-quantity-select" class="custom-count-select quantity-select">
+        <isloop items="${product.quantities}" var="quantity">
+            <option value="${quantity.value}" <isif condition="${product.productType !== 'bundle'}">
+                data-url="${quantity.url}"</isif>
+                ${quantity.selected ? 'selected' : ''}>
+                ${quantity.value}
+            </option>
+        </isloop>
+    </select>
+    <button id="value-next" class="btn border-secondary rounded-circle"><i class="fa fa-plus text-secondary"
+            aria-hidden="true"></i></button>
+</div>
