@@ -116,7 +116,7 @@
   ],
   "packageName": "app_custom_cartridge",
   "paths": {
-    "base": "./cartridges/app_custom_cartridge/"
+    "base": "./cartridges/app_storefront_base/"
   },
   "babel": {
     "presets": [
