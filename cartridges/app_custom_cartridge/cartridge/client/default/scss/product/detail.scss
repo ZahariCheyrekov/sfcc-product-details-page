@@ -17,6 +17,10 @@
     }
 }
 
+.product-size-chart.details {
+    width: 110px;
+}
+
 .size-chart {
     gap: 50%;
 }
@@ -57,4 +61,36 @@
 
 .content-asset-special {
     margin-bottom: 0;
+}
+
+.custom-count-select {
+    width: 3rem;
+    height: 2rem;
+    overflow: hidden;
+    border: none;
+    text-align: center;
+    // hide arrows
+    -webkit-appearance: none;
+    -moz-appearance: none;
+
+    &::-moz-focus-inner {
+        border: 0;
+    }
+    ​ &:focus {
+        outline: none;
+    }
+
+    & option {
+        display: none;
+        &:checked {
+            display: block;
+            // display: inline-block;
+            background-color: transparent;
+            font-size: 1.5rem;
+        }
+    }
+}
+
+.product-details-title {
+    flex-basis: 135%;
 }
