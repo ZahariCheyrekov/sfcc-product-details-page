@@ -1,17 +1,16 @@
 function showMoreText() {
-    const selectQuantity = document.getElementById("custom-quantity-select");
+    const selectQuantity = document.getElementById('custom-quantity-select');
     const buttonNext = document.getElementById('value-next');
     const buttonBack = document.getElementById('value-back');
 
-
     if (selectQuantity) {
-        selectQuantity.addEventListener("mousedown", (e) => {
+        selectQuantity.addEventListener('mousedown', (e) => {
             e.preventDefault();
         }, false)
     }
 
     if (buttonNext) {
-        buttonNext.addEventListener("click", () => {
+        buttonNext.addEventListener('click', () => {
             const selectedIndex = selectQuantity.selectedIndex;
 
             const currElement = selectQuantity.options[selectedIndex];
@@ -25,7 +24,7 @@ function showMoreText() {
     }
 
     if (buttonBack) {
-        buttonBack.addEventListener("click", () => {
+        buttonBack.addEventListener('click', () => {
             const selectedIndex = selectQuantity.selectedIndex;
 
             const currElement = selectQuantity.options[selectedIndex];
