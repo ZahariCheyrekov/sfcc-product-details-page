@@ -1,11 +1,11 @@
 <div class="col-12 col-sm-6 image-main-wrapper d-flex">
     <isif condition="${product.images['small'].length > 1}">
-        <ol class="d-flex flex-column align-items-start p-0" aria-hidden="true" data-interval="0">
+        <ol class="d-flex flex-column align-items-start p-0 mr-4" aria-hidden="true" data-interval="0">
             <isloop items="${product.images['small']}" var="image" status="loopStatus">
                 <li data-target="${" #"}pdpCarousel-${product.id}" data-slide-to="${loopStatus.index}"
                     class='list-unstyled small-image-wrapper mb-3 <isif condition="${loopStatus.index == 0}">active</isif>'>
-                    <img src="${image.url}" class='d-block img-fluid' alt="${image.alt} image number ${image.index}"
-                        itemprop="image" />
+                    <img src="${image.url}" class='d-block img-fluid' role="button"
+                        alt="${image.alt} image number ${image.index}" itemprop="image" />
                 </li>
             </isloop>
         </ol>
