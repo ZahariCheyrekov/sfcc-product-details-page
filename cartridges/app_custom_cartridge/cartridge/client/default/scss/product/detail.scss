@@ -36,6 +36,7 @@
 .custom-select-buttons {
     width: 34rem;
     height: 3rem;
+    
     overflow: auto;
     border: none;
 
@@ -49,13 +50,15 @@
 
     & option {
         background-color: var(--color-grey2);
-        padding: 0.2rem 1.2rem;
-        text-align: center;
-        margin-right: 1.2rem;
-        display: inline-block;
-        cursor: pointer;
-        border-radius: 0.4rem;
         color: var(--color-grey6);
+
+        margin-right: 1.2rem;
+        padding: 0.2rem 1.2rem;
+        display: inline-block;
+
+        cursor: pointer;
+        text-align: center;
+        border-radius: 0.4rem;
     }
 }
 
@@ -84,7 +87,6 @@
         display: none;
         &:checked {
             display: block;
-            // display: inline-block;
             background-color: transparent;
             font-size: 1.5rem;
         }
