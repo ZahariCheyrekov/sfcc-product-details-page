@@ -13,4 +13,3 @@
 <span class="product-rating-number">
     ${product.rating}
 </span>
-<span>(${product.rating})</span>
