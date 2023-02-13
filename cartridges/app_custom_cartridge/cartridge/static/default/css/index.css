@@ -50,13 +50,13 @@
 }
 .custom-select-buttons option {
   background-color: var(--color-grey2);
-  padding: 0.2rem 1.2rem;
-  text-align: center;
+  color: var(--color-grey6);
   margin-right: 1.2rem;
+  padding: 0.2rem 1.2rem;
   display: inline-block;
   cursor: pointer;
+  text-align: center;
   border-radius: 0.4rem;
-  color: var(--color-grey6);
 }
 
 .content-asset-special {
@@ -90,6 +90,19 @@
 .product-details-title {
   -ms-flex-preferred-size: 135%;
       flex-basis: 135%;
+}
+
+.tile-body-footer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.product-tile .tile-body .ratings {
+  font-size: 0.8em;
 }
 
 @media (max-width: 768px) {

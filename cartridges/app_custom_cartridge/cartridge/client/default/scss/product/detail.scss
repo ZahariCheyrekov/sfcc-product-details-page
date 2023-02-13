@@ -36,7 +36,7 @@
 .custom-select-buttons {
     width: 34rem;
     height: 3rem;
-    
+
     overflow: auto;
     border: none;
 
@@ -95,4 +95,13 @@
 
 .product-details-title {
     flex-basis: 135%;
+}
+
+.tile-body-footer {
+    display: flex;
+    justify-content: center;
+}
+
+.product-tile .tile-body .ratings {
+    font-size: 0.8em;
 }
