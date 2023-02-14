@@ -177,7 +177,7 @@
         <div class="row mx-auto my-auto">
             <div id="recipeCarousel" class="carousel slide w-100" data-ride="carousel">
                 <div class="carousel-inner w-100 d-flex align-self-stretch" role="listbox">
-                    <isloop items="${pdict.product.raw.recommendations}" var="reccomendation" status="counter">
+                    <isloop items="${pdict.product.recommendations}" var="reccomendation" status="counter">
                         <div class="carousel-item <isif condition=${counter.count === 4}>active</isif>">
                             <div class="col-md-3">
                                 <div class="card card-body border-0">
