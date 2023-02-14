@@ -63,73 +63,75 @@
                 <div class="hr-divider">
                     <hr />
                 </div>
+                <div class="attributes">
 
-                <!-- Attributes and Quantity -->
-                <isinclude template="product/components/mainAttributes" />
-                <isset name="isBundle" value="${false}" scope="page" />
-                <isset name="loopState" value="${{
-                                               count: 1}}" scope="page" />
-                <isloop items="${product.variationAttributes}" var="attr" status="attributeStatus">
-                    <div class="row" data-attr="${attr.id}">
-                        <div class="col-12">
-                            <isinclude template="product/components/variationAttribute" />
-                        </div>
-                        <isif condition="${product.variationAttributes && product.sizeChartId}">
-                            <div class="row">
-                                <div class="size-chart col-12">
-                                    <isinclude template="product/components/sizeChart" />
-                                </div>
+                    <!-- Attributes and Quantity -->
+                    <isinclude template="product/components/mainAttributes" />
+                    <isset name="isBundle" value="${false}" scope="page" />
+                    <isset name="loopState" value="${{
+                                                   count: 1}}" scope="page" />
+                    <isloop items="${product.variationAttributes}" var="attr" status="attributeStatus">
+                        <div class="row" data-attr="${attr.id}">
+                            <div class="col-12">
+                                <isinclude template="product/components/variationAttribute" />
                             </div>
-                        </isif>
-                        <div class="col-12">
-                            <isif condition="${attributeStatus.last && !isBundle}">
-
-                                <div class="hr-divider">
-                                    <hr />
-                                </div>
-
-                                <!-- Quantity Drop Down Menu -->
-                                <div class="attribute quantity d-flex justify-content-between align-items-center">
-                                    <isinclude template="product/components/quantity" />
+                            <isif condition="${product.variationAttributes && product.sizeChartId}">
+                                <div class="row">
+                                    <div class="size-chart col-12">
+                                        <isinclude template="product/components/sizeChart" />
+                                    </div>
                                 </div>
                             </isif>
-                        </div>
-                    </div>
-                </isloop>
-                <isif condition="${!product.variationAttributes}">
-                    <div class="row">
-                        <div class="col-12">
-                            <div class="simple-quantity">
-                                <isinclude template="product/components/quantity" />
+                            <div class="col-12">
+                                <isif condition="${attributeStatus.last && !isBundle}">
+
+                                    <div class="hr-divider">
+                                        <hr />
+                                    </div>
+
+                                    <!-- Quantity Drop Down Menu -->
+                                    <div class="attribute quantity d-flex justify-content-between align-items-center">
+                                        <isinclude template="product/components/quantity" />
+                                    </div>
+                                </isif>
                             </div>
                         </div>
-                    </div>
-                </isif>
-                <div class="product-options">
-                    <isif condition="${product.options && product.options.length > 0}">
-                        <isinclude template="product/components/options" />
+                    </isloop>
+                    <isif condition="${!product.variationAttributes}">
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="simple-quantity">
+                                    <isinclude template="product/components/quantity" />
+                                </div>
+                            </div>
+                        </div>
                     </isif>
-                </div>
-
-                <!-- Product Availability -->
-                <isinclude template="product/components/productAvailability" />
-                <!-- Applicable Promotions -->
-                <div class="row">
-                    <div class="col-12 promotions">
-                        <isinclude template="product/components/promotions" />
+                    <div class="product-options">
+                        <isif condition="${product.options && product.options.length > 0}">
+                            <isinclude template="product/components/options" />
+                        </isif>
                     </div>
-                </div>
 
-                <div class="hr-divider">
-                    <hr />
-                </div>
+                    <!-- Product Availability -->
+                    <isinclude template="product/components/productAvailability" />
+                    <!-- Applicable Promotions -->
+                    <div class="row">
+                        <div class="col-12 promotions">
+                            <isinclude template="product/components/promotions" />
+                        </div>
+                    </div>
 
-                <!-- Product Add to Bag -->
-                <isinclude template="product/components/addToBagProduct" />
+                    <div class="hr-divider">
+                        <hr />
+                    </div>
 
-                <!-- Product Custom Asset -->
-                <div>
-                    <isprint value="${pdict.offerAsset.custom.body}" encoding="off" />
+                    <!-- Product Add to Bag -->
+                    <isinclude template="product/components/addToBagProduct" />
+
+                    <!-- Product Custom Asset -->
+                    <div>
+                        <isprint value="${pdict.offerAsset.custom.body}" encoding="off" />
+                    </div>
                 </div>
             </div>
         </div>
@@ -167,33 +169,33 @@
         <div class="hr-divider">
             <hr />
         </div>
+    </div>
 
-        <!-- Product Recommendations -->
-        <div class="container text-center my-3">
-            <h2 class="font-weight-light">${Resource.msg('recommended.products.message', 'recommendation', null)}</h2>
-            <div class="row mx-auto my-auto">
-                <div id="recipeCarousel" class="carousel slide w-100" data-ride="carousel">
-                    <div class="carousel-inner w-100 d-flex align-self-stretch" role="listbox">
-                        <isloop items="${pdict.product.raw.recommendations}" var="reccomendation" status="counter">
-                            <div class="carousel-item <isif condition=${counter.count === 4}>active</isif>">
-                                <div class="col-md-3">
-                                    <div class="card card-body border-0">
-                                        <isinclude url="${URLUtils.url('Tile-Show', 'pid', reccomendation.recommendedItem.ID, 'swatches', false, 'ratings', true, 'showQuickView',
-                                                        false)}" />
-                                    </div>
+    <!-- Product Recommendations -->
+    <div class="container text-center my-3">
+        <h2 class="font-weight-light">${Resource.msg('recommended.products.message', 'recommendation', null)}</h2>
+        <div class="row mx-auto my-auto">
+            <div id="recipeCarousel" class="carousel slide w-100" data-ride="carousel">
+                <div class="carousel-inner w-100 d-flex align-self-stretch" role="listbox">
+                    <isloop items="${pdict.product.raw.recommendations}" var="reccomendation" status="counter">
+                        <div class="carousel-item <isif condition=${counter.count === 4}>active</isif>">
+                            <div class="col-md-3">
+                                <div class="card card-body border-0">
+                                    <isinclude url="${URLUtils.url('Tile-Show', 'pid', reccomendation.recommendedItem.ID, 'swatches', false, 'ratings', true, 'showQuickView',
+                                                    false)}" />
                                 </div>
                             </div>
-                        </isloop>
-                    </div>
-                    <a class="carousel-control-prev w-auto" href="#recipeCarousel" role="button" data-slide="prev">
-                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                        <span class="sr-only">${Resource.msg('recommended.left', 'recommendation', null)}</span>
-                    </a>
-                    <a class="carousel-control-next w-auto" href="#recipeCarousel" role="button" data-slide="next">
-                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                        <span class="sr-only">${Resource.msg('recommended.right', 'recommendation', null)}</span>
-                    </a>
+                        </div>
+                    </isloop>
                 </div>
+                <a class="carousel-control-prev w-auto" href="#recipeCarousel" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">${Resource.msg('recommended.left', 'recommendation', null)}</span>
+                </a>
+                <a class="carousel-control-next w-auto" href="#recipeCarousel" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">${Resource.msg('recommended.right', 'recommendation', null)}</span>
+                </a>
             </div>
         </div>
     </div>
